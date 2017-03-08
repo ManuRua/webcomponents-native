@@ -28,11 +28,12 @@
   class SellButton extends HTMLElement {
     constructor() {
       super();
+      this.importDocument = document.currentScript.ownerDocument;
     }
 
     connectedCallback() {
       let shadowRoot = this.attachShadow({mode: 'open'});
-      const t = document.querySelector('#sellBtn');
+      const t = this.importDocument.querySelector('#sellBtn');
       const instance = t.content.cloneNode(true);
       shadowRoot.appendChild(instance);
     }
